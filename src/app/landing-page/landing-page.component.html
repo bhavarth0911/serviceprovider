@@ -22,7 +22,7 @@
 <section class="text-center py-32 bg-gradient-to-r from-[#dbeafe] to-[#ede9fe]">
   <div class="max-w-6xl mx-auto px-4">
     
-  <h1 class="text-6xl md:text-8xl font-bold text-gray-900 mb-10 whitespace-nowrap ml-[-110px]">
+  <h1 class="text-6xl md:text-7xl font-bold text-gray-900 mb-10 whitespace-nowrap ml-[-70px]">
   Find the Perfect <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Service Provider</span>
 </h1>
 
@@ -58,50 +58,279 @@
 </section>
 
 
-<!-- Stats Section -->
-<div class="bg-white py-16">
-  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 text-center px-4">
-    <div class="shadow p-10 rounded-2xl border">
-      <div class="text-3xl font-bold text-blue-600">1,250+</div>
-      <p class="mt-2 text-gray-600">Active Service Providers</p>
+<div class="bg-white py-20">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 text-center px-6">
+    
+    <!-- Card -->
+    <div class=" w-96 p-12  transition-all duration-300 hover:shadow-2xl hover:rounded-none hover:bg-white">
+      <div class="flex justify-center mb-6 text-blue-600 text-4xl">
+        <i class="fas fa-users"></i>
+      </div>
+      <div class="text-4xl font-bold text-gray-800">1,250+</div>
+      <p class="mt-3 text-lg text-gray-600">Active Service Providers</p>
     </div>
-    <div class="shadow p-10 rounded-2xl border">
-      <div class="text-3xl font-bold text-blue-600">15,000+</div>
-      <p class="mt-2 text-gray-600">Services Completed</p>
+
+    <!-- Card -->
+    <div class="w-96 p-12  transition-all duration-300 hover:shadow-2xl hover:rounded-none hover:bg-white">
+      <div class="flex justify-center mb-6 text-green-600 text-4xl">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <div class="text-4xl font-bold text-gray-800">15,000+</div>
+      <p class="mt-3 text-lg text-gray-600">Services Completed</p>
     </div>
-    <div class="shadow p-10 rounded-2xl border">
-      <div class="text-3xl font-bold text-blue-600">98%</div>
-      <p class="mt-2 text-gray-600">Customer Satisfaction</p>
+
+    <!-- Card -->
+    <div class="w-96  p-12 transition-all duration-300 hover:shadow-2xl hover:rounded-none hover:bg-white">
+      <div class="flex justify-center mb-6 text-yellow-500 text-4xl">
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="text-4xl font-bold text-gray-800">98%</div>
+      <p class="mt-3 text-lg text-gray-600">Customer Satisfaction</p>
     </div>
-    <div class="shadow p-10 rounded-2xl border">
-      <div class="text-3xl font-bold text-blue-600">25%</div>
-      <p class="mt-2 text-gray-600">Monthly Growth</p>
+
+    <!-- Card -->
+    <div class=" w-96 p-12  transition-all duration-300 hover:shadow-2xl hover:rounded-none hover:bg-white">
+      <div class="flex justify-center mb-6 text-purple-600 text-4xl">
+        <i class="fas fa-chart-line"></i>
+      </div>
+      <div class="text-4xl font-bold text-gray-800">25%</div>
+      <p class="mt-3 text-lg text-gray-600">Monthly Growth</p>
     </div>
+
   </div>
 </div>
 
+<!-- Blue Gradient Box -->
+<div class="bg-gradient-to-r from-blue-500 to-purple-600 py-12 px-4 text-white text-center transition-all duration-300 hover:shadow-2xl hover:rounded-none">
+  <h2 class="text-2xl font-bold">Featured Services</h2>
+  <p class="mt-2 text-white text-opacity-90">Top-rated services available in your area</p>
+</div>
 
-<section class="bg-white py-16">
-  <div class="max-w-6xl mx-auto">
-    <h1 class="text-3xl font-bold text-center mb-4">Our Service Categories</h1>
-    <p class="text-center text-gray-600 mb-10">
+
+<section class="bg-white py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <h1 class="text-4xl font-bold text-center mb-6">Our Service Categories</h1>
+    <p class="text-center text-gray-600 mb-14 text-lg">
       Discover a wide range of professional services tailored to meet all your needs
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center px-4">
-      <div *ngFor="let category of categories" class="shadow p-10 rounded-2xl border min-h-[250px] flex flex-col justify-center">
-        <div class="text-2xl font-bold text-blue-600">{{ category.title }}</div>
-        <p class="mt-3 text-gray-600 text-lg">{{ category.description }}</p>
-        <div class="mt-4 text-sm text-gray-500">⭐ {{ category.rating }} | 👥 {{ category.providers }} providers</div>
-        <button class="mt-5 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
-          View Providers
-        </button>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20"> <!-- Increased gap -->
+      <div *ngFor="let category of categories"
+        class="bg-white p-8 rounded-2xl border hover:shadow-xl transition-all duration-300 min-h-[360px] flex flex-col justify-between text-left
+               transform hover:-translate-x-4 transition-transform duration-300 ease-in-out">  <!-- Slide left on hover, increased height -->
+
+        <div>
+          <h2 class="text-2xl font-bold text-blue-600 mb-2">{{ category.title }}</h2>
+          <p class="text-gray-600 text-base mb-4">{{ category.description }}</p>
+        </div>
+        <div>
+          <div class="text-sm text-gray-500 mb-3">⭐ {{ category.rating }} | 👥 {{ category.providers }} providers</div>
+          <button class="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm font-semibold">
+            View Providers
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 
+
+    <div class="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <!-- Header Section -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Why Choose ServiceHub?
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            We make finding and booking services simple, safe, and reliable
+          </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+          <!-- Verified Professionals -->
+          <div class="text-center group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div class="flex justify-center mb-8">
+              <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-300">
+                <i class="pi pi-shield text-3xl text-blue-600"></i>
+              </div>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+              Verified Professionals
+            </h3>
+            <p class="text-gray-600 leading-relaxed text-lg">
+              All service providers are thoroughly vetted and background checked
+            </p>
+          </div>
+
+          <!-- 24/7 Support -->
+          <div class="text-center group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div class="flex justify-center mb-8">
+              <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center group-hover:bg-green-200 transition-colors duration-300">
+                <i class="pi pi-clock text-3xl text-green-600"></i>
+              </div>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+              24/7 Support
+            </h3>
+            <p class="text-gray-600 leading-relaxed text-lg">
+              Round-the-clock customer support for all your service needs
+            </p>
+          </div>
+
+          <!-- Quality Guarantee -->
+          <div class="text-center group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div class="flex justify-center mb-8">
+              <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center group-hover:bg-yellow-200 transition-colors duration-300">
+                <i class="pi pi-bookmark text-3xl text-yellow-600"></i>
+              </div>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+              Quality Guarantee
+            </h3>
+            <p class="text-gray-600 leading-relaxed text-lg">
+              100% satisfaction guarantee or your money back
+            </p>
+          </div>
+
+          <!-- Easy Booking -->
+          <div class="text-center group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div class="flex justify-center mb-8">
+              <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center group-hover:bg-purple-200 transition-colors duration-300">
+                <i class="pi pi-calendar text-3xl text-purple-600"></i>
+              </div>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+              Easy Booking
+            </h3>
+            <p class="text-gray-600 leading-relaxed text-lg">
+              Book services in just a few clicks with our simple interface
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<div class="bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <!-- Header Section -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            What Our Customers Say
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Real reviews from satisfied customers
+          </p>
+        </div>
+
+        <!-- Testimonials Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Testimonial Card -->
+          <div 
+            *ngFor="let testimonial of testimonials" 
+            class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
+          >
+            <!-- Customer Info -->
+            <div class="flex items-center mb-6">
+              <div class="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+                <i class="pi pi-user text-gray-500 text-xl"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 text-lg">
+                  {{ testimonial.name }}
+                </h3>
+                <p class="text-gray-500 text-sm">
+                  {{ testimonial.service }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Rating Stars -->
+            <div class="flex mb-4">
+              <span 
+                *ngFor="let star of getStarsArray(testimonial.rating)" 
+                class="text-yellow-400 text-lg"
+              >
+                ⭐
+              </span>
+            </div>
+
+            <!-- Review Text -->
+            <blockquote class="text-gray-700 italic leading-relaxed">
+              "{{ testimonial.review }}"
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <!-- Heading -->
+        <h2 class="text-5xl font-bold text-white mb-6">
+          Ready to Get Started?
+        </h2>
+        
+        <!-- Subtitle -->
+        <p class="text-xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed">
+          Join thousands of satisfied customers who found their perfect service provider
+        </p>
+        
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <!-- Book a Service Button -->
+          <button 
+            class="group bg-white text-blue-700 font-semibold px-8 py-4 rounded-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-3 min-w-[200px]"
+            (click)="onBookService()"
+          >
+            <i class="pi pi-calendar text-lg"></i>
+            <span>Book a Service</span>
+          </button>
+          
+          <!-- Learn More Button -->
+          <div class="relative">
+            <button 
+              class="group bg-transparent border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-3 min-w-[200px]"
+              (mouseenter)="showTooltip = true"
+              (mouseleave)="showTooltip = false"
+              (click)="onLearnMore()"
+            >
+              <i class="pi pi-info-circle text-lg"></i>
+              <span>Learn More</span>
+            </button>
+            
+            <!-- Hover Tooltip -->
+            <div 
+              *ngIf="showTooltip"
+              class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-gray-900 text-white text-sm px-4 py-2 rounded-lg shadow-lg whitespace-nowrap z-10 opacity-0 animate-fade-in"
+              [ngClass]="{'opacity-100': showTooltip}"
+            >
+              Discover our platform features
+              <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-b-gray-900"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional Info -->
+        <div class="mt-12 flex flex-col sm:flex-row justify-center items-center gap-8 text-blue-100">
+          <div class="flex items-center gap-2">
+            <i class="pi pi-check-circle text-green-300"></i>
+            <span>100% Satisfaction Guaranteed</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="pi pi-shield text-green-300"></i>
+            <span>Verified Professionals</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="pi pi-clock text-green-300"></i>
+            <span>24/7 Support</span>
+          </div>
+        </div>
+      </div>
+    </div>
 <!-- Footer -->
 <footer class="bg-gray-800 text-white py-6 text-center">
   <p class="text-sm">&copy; 2025 ServiceHub. All rights reserved.</p>

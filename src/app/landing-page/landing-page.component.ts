@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ServiceCategory, ServiceDetailService } from '../services/service-detail.service';
+
 
 @Component({
   selector: 'app-landing-page',
@@ -9,67 +11,75 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })
-export class LandingPageComponent {
+export class LandingPageComponent implements OnInit {
 
-  categories = [
-    {
-      title: 'Home Services',
-      description: 'Cleaning, maintenance, and repair services for your home.',
-      rating: 4.8,
-      providers: 45
-    },
-    {
-      title: 'Automotive Services',
-      description: 'Car maintenance, repair, and detailing.',
-      rating: 4.7,
-      providers: 32
-    },
-    {
-      title: 'Technical Repair',
-      description: 'Electronics, appliances, and gadget repair.',
-      rating: 4.9,
-      providers: 28
-    },
-    {
-      title: 'Beauty & Wellness',
-      description: 'Spa services, wellness care, and beauty treatments.',
-      rating: 4.6,
-      providers: 56
-    },{
-      title: 'Technical Repair',
-      description: 'Electronics, appliances, and gadget repair.',
-      rating: 4.9,
-      providers: 28
-    },
-    {
-      title: 'Beauty & Wellness',
-      description: 'Spa services, wellness care, and beauty treatments.',
-      rating: 4.6,
-      providers: 56
-    },{
-      title: 'Technical Repair',
-      description: 'Electronics, appliances, and gadget repair.',
-      rating: 4.9,
-      providers: 28
-    },
-    {
-      title: 'Beauty & Wellness',
-      description: 'Spa services, wellness care, and beauty treatments.',
-      rating: 4.6,
-      providers: 56
-    }
-  ];
+  categories: ServiceCategory[] = [];
 
-//    ngOnInit() {
-//   this.serviceDetailService.getAllServices().subscribe(data => {
-//     this.categories = data.attributes.message.map((service: ServiceDetail) => ({
-//       title: service.serviceName,
-//       description: service.serviceDescription,
-//       rating: service.serviceRating,
-//       providers: Math.floor(Math.random() * 50) + 10
-//     }));
-//   });
-// }
+  constructor(private serviceDetailService: ServiceDetailService) {
+
+  }
+
+  ngOnInit(): void {
+    this.serviceDetailService.getServiceCategories().subscribe({
+      next: (data) => {
+        this.categories = data;
+      },
+      error: (err) => {
+        console.error('Error fetching service categories', err);
+      }
+    });
+  }
+  // categories = [
+  //   {
+  //     title: 'Home Services',
+  //     description: 'Cleaning, maintenance, and repair services for your home.',
+  //     rating: 4.8,
+  //     providers: 45
+  //   },
+  //   {
+  //     title: 'Automotive Services',
+  //     description: 'Car maintenance, repair, and detailing.',
+  //     rating: 4.7,
+  //     providers: 32
+  //   },
+  //   {
+  //     title: 'Technical Repair',
+  //     description: 'Electronics, appliances, and gadget repair.',
+  //     rating: 4.9,
+  //     providers: 28
+  //   },
+  //   {
+  //     title: 'Beauty & Wellness',
+  //     description: 'Spa services, wellness care, and beauty treatments.',
+  //     rating: 4.6,
+  //     providers: 56
+  //   },{
+  //     title: 'Technical Repair',
+  //     description: 'Electronics, appliances, and gadget repair.',
+  //     rating: 4.9,
+  //     providers: 28
+  //   },
+  //   {
+  //     title: 'Beauty & Wellness',
+  //     description: 'Spa services, wellness care, and beauty treatments.',
+  //     rating: 4.6,
+  //     providers: 56
+  //   },{
+  //     title: 'Technical Repair',
+  //     description: 'Electronics, appliances, and gadget repair.',
+  //     rating: 4.9,
+  //     providers: 28
+  //   },
+  //   {
+  //     title: 'Beauty & Wellness',
+  //     description: 'Spa services, wellness care, and beauty treatments.',
+  //     rating: 4.6,
+  //     providers: 56
+  //   }
+  // ];
+ 
+  
+  
 
    testimonials = [
     {
@@ -108,6 +118,9 @@ export class LandingPageComponent {
     // Add your learn more logic here
   }
 
+//   viewProviders(serviceDetailsId: number) {
+//   this.router.navigate(['/providers', serviceDetailsId]);
+// }
 
   
 }

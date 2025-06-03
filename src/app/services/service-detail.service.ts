@@ -1,25 +1,43 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
-export interface ServiceDetail {
-  serviceDetailid: number;
-  serviceName: string;
-  serviceDescription: string;
-  serviceRating: number;
+export interface ServiceCategory {
+  serviceId:number;
+  title: string;
+  description: string;
+  rating: number;
+  providers: number; // This is not available from backend; you can hardcode it for now
 }
+
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceDetailService {
-  private baseUrl = 'http://localhost:8080/serviceDetail';
+  private baseUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
 
-getAllServices(): Observable<{ attributes: { message: ServiceDetail[] } }> {
-  return this.http.get<{ attributes: { message: ServiceDetail[] } }>(
-    `${this.baseUrl}/getAllServices`
-  );
-}
+  getServiceCategories(): Observable<ServiceCategory[]> {
+    return this.http.get<any>(`${this.baseUrl}/serviceDetail/getAllServices`).pipe(
+      map(response => {
+        return response.attributes.message.map((item: any) => ({
+          serviceID:item.serviceDetailid,
+          title: item.serviceName,
+          description: item.serviceDescription,
+          rating: item.serviceRating,
+          providers: Math.floor(Math.random() * 50 + 10) // Random for now
+        }));
+      })
+    );
+  }
+
+//   getProvidersByServiceDetailId(serviceDetailsId: string) {
+//   return this.http.post<any>(
+//     `${this.baseUrl}/serviceprovider/getProviderByServiceDetailId`,
+//     { serviceDetailsId }
+//   );
+// }
+
 
 }

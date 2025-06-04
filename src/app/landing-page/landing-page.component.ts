@@ -2,12 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component,OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ServiceCategory, ServiceDetailService } from '../services/service-detail.service';
+import { Router, RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule,RouterModule],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })
@@ -15,7 +16,7 @@ export class LandingPageComponent implements OnInit {
 
   categories: ServiceCategory[] = [];
 
-  constructor(private serviceDetailService: ServiceDetailService) {
+  constructor(private serviceDetailService: ServiceDetailService,private router: Router) {
 
   }
 
@@ -27,6 +28,13 @@ export class LandingPageComponent implements OnInit {
       error: (err) => {
         console.error('Error fetching service categories', err);
       }
+    });
+  }
+
+    // Method to handle View Providers button click
+  viewProviders(serviceDetailId: number): void {
+    this.router.navigate(['/provider'], { 
+      queryParams: { serviceDetailId: serviceDetailId } 
     });
   }
   // categories = [

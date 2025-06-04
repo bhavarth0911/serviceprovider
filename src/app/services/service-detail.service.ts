@@ -3,13 +3,29 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
 export interface ServiceCategory {
-  serviceId:number;
+  serviceDetailId:number;
   title: string;
   description: string;
   rating: number;
   providers: number; // This is not available from backend; you can hardcode it for now
 }
 
+export interface ServiceProvider {
+  serviceProviderId: number;
+  serviceProviderName: string;
+  address: string;
+  phoneNumber: string;
+  email: string;
+  cost: number;
+  serviceDetailsId: number;
+}
+
+interface ProvidersResponse {
+  attributes: {
+    serviceproviders: ServiceProvider[];
+  };
+  errors: any;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +38,7 @@ export class ServiceDetailService {
     return this.http.get<any>(`${this.baseUrl}/serviceDetail/getAllServices`).pipe(
       map(response => {
         return response.attributes.message.map((item: any) => ({
-          serviceID:item.serviceDetailid,
+          serviceDetailId:item.serviceDetailid,
           title: item.serviceName,
           description: item.serviceDescription,
           rating: item.serviceRating,
@@ -31,13 +47,17 @@ export class ServiceDetailService {
       })
     );
   }
+    // New method to get providers by service detail ID
+  getProvidersByServiceDetailId(serviceDetailsId: string): Observable<ProvidersResponse> {
+    const body = {
+      serviceDetailsId: serviceDetailsId
+    };
 
-//   getProvidersByServiceDetailId(serviceDetailsId: string) {
-//   return this.http.post<any>(
-//     `${this.baseUrl}/serviceprovider/getProviderByServiceDetailId`,
-//     { serviceDetailsId }
-//   );
-// }
+    return this.http.post<ProvidersResponse>(
+      `${this.baseUrl}/serviceprovider/getProviderByServiceDetailId`,
+      body
+    );
+  }
 
 
 }

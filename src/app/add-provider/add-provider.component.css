@@ -1,0 +1,86 @@
+/* service-provider-registration.component.css */
+
+/* Custom PrimeNG component styling */
+::ng-deep .p-inputtext {
+  @apply border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500;
+  padding: 0.75rem;
+}
+
+::ng-deep .p-inputtextarea {
+  @apply border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500;
+  padding: 0.75rem;
+}
+
+::ng-deep .p-dropdown {
+  @apply w-full;
+}
+
+::ng-deep .p-dropdown .p-dropdown-label {
+  @apply py-3 px-3;
+}
+
+::ng-deep .p-dropdown.p-invalid {
+  @apply border-red-500;
+}
+
+::ng-deep .p-inputtext.ng-invalid.ng-dirty,
+::ng-deep .p-inputtextarea.ng-invalid.ng-dirty {
+  @apply border-red-500 focus:border-red-500 focus:ring-red-500;
+}
+
+/* Button styling */
+::ng-deep .p-button {
+  @apply font-medium py-3 px-6 rounded-md transition-all duration-200;
+}
+
+::ng-deep .p-button-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white border-blue-600 hover:border-blue-700;
+}
+
+::ng-deep .p-button-outlined.p-button-secondary {
+  @apply border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400;
+}
+
+::ng-deep .p-button:disabled {
+  @apply opacity-60 cursor-not-allowed;
+}
+
+/* Loading spinner */
+::ng-deep .p-button .p-button-loading-icon {
+  @apply mr-2;
+}
+
+/* Error message styling */
+.p-error {
+  @apply text-red-500 text-sm;
+}
+
+/* Form animations */
+.p-inputtext,
+.p-inputtextarea,
+.p-dropdown {
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  ::ng-deep .p-button {
+    @apply w-full justify-center;
+  }
+}
+
+/* Focus states for better accessibility */
+.p-inputtext:focus,
+.p-inputtextarea:focus,
+::ng-deep .p-dropdown:focus-within {
+  @apply ring-2 ring-blue-500 ring-opacity-50;
+}
+
+/* Card hover effect */
+.bg-white {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.bg-white:hover {
+  @apply shadow-xl;
+}

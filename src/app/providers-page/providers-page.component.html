@@ -1,22 +1,5 @@
-<!-- Navigation -->
-<div class="bg-white shadow-md px-12 py-2 flex justify-between items-center">
-  <div class="text-2xl font-bold text-black-600">
-    <span class="flex items-center space-x-2">
-      <span>ServiceHub</span>
-    </span>
-  </div>
-  <div class="flex space-x-11 text-xl font-semibold text-gray-800">
-    <a routerLink="/" class="hover:text-blue-600">Home</a>
-    <a routerLink="/services" class="hover:text-blue-600">Services</a>
-    <a routerLink="/providers" class="hover:text-blue-600">Providers</a>
-    <a routerLink="/about" class="hover:text-blue-600">About</a>
-    <a routerLink="/contact" class="hover:text-blue-600">Contact</a>
-  </div>
-  <div class="space-x-2 text-lg font-semibold">
-    <button class="w-32 md:w-35 text-lg px-5 py-3 text-gray-800 border rounded-md hover:bg-gray-100 ">Sign In</button>
-    <button class="w-32 md:w-35 text-lg  px-4 py-3  bg-blue-600 text-white rounded-md hover:bg-blue-700">Get Started</button>
-  </div>
-</div>
+<!--navbar-->
+<app-resubale-navbar></app-resubale-navbar>
 
 <section class="text-black-400 bg-gradient-to-r from-[#dbeafe] to-[#ede9fe] body-font">
   <div class="container px-5 py-24 mx-auto">
@@ -80,6 +63,110 @@
 
 
 <!-- Footer -->
-<footer class="bg-gray-800 text-white py-6 text-center">
-  <p class="text-sm">&copy; 2025 ServiceHub. All rights reserved.</p>
-</footer>
+<!-- Footer -->
+<footer class="bg-slate-900 text-gray-300 py-12 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- ServiceHub Brand Section -->
+          <div class="space-y-4">
+            <div class="flex items-center space-x-2">
+              <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                <i class="pi pi-shield text-white text-lg"></i>
+              </div>
+              <h2 class="text-white text-xl font-semibold">ServiceHub</h2>
+            </div>
+            <p class="text-gray-400 leading-relaxed">
+              Your trusted platform for finding reliable service providers in your area.
+            </p>
+            <div class="flex space-x-3">
+              <button class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                <i class="pi pi-comment text-gray-300"></i>
+              </button>
+              <button class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                <i class="pi pi-star text-gray-300"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Services Section -->
+          <div class="space-y-4">
+            <h3 class="text-white text-lg font-semibold">Services</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  Home Services
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  Automotive
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  Beauty & Wellness
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  Healthcare
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Company Section -->
+          <div class="space-y-4">
+            <h3 class="text-white text-lg font-semibold">Company</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  Terms of Service
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Section -->
+          <div class="space-y-4">
+            <h3 class="text-white text-lg font-semibold">Contact</h3>
+            <ul class="space-y-3">
+              <li class="flex items-center space-x-3">
+                <i class="pi pi-phone text-gray-400"></i>
+                <span class="text-gray-400">(555) 123-4567</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="pi pi-envelope text-gray-400"></i>
+                <span class="text-gray-400">hello &#64; servicehub.com</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="pi pi-map-marker text-gray-400 mt-1"></i>
+                <span class="text-gray-400">123 Service St, City</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+          <p class="text-gray-400">
+            © 2024 ServiceHub. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>

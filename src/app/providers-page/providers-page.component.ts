@@ -3,6 +3,7 @@ import { ServiceDetailService } from '../services/service-detail.service';
 
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ResubaleNavbarComponent } from '../resubale-navbar/resubale-navbar.component';
 
 // Interface for service provider
 interface ServiceProvider {
@@ -23,7 +24,7 @@ interface ProvidersResponse {
 @Component({
   selector: 'app-providers-page',
   standalone: true,
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule,RouterModule,ResubaleNavbarComponent],
   templateUrl: './providers-page.component.html',
   styleUrl: './providers-page.component.css'
 })

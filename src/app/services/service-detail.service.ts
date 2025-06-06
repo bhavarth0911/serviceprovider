@@ -59,5 +59,10 @@ export class ServiceDetailService {
     );
   }
 
+    addServiceProvider(data: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/serviceprovider/addServiceProvider`, data);
+  }
+
+
 
 }

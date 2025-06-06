@@ -1,0 +1,63 @@
+<!-- service-provider-registration.component.html -->
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-8 px-4">
+  <div class="max-w-2xl mx-auto">
+    
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-gray-800 mb-2">Become a Service Provider</h1>
+      <p class="text-gray-600">
+        Join our network of trusted professionals and grow your business
+      </p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+  <form [formGroup]="serviceProvider" (ngSubmit)="onSubmit()">
+    <!-- Name -->
+    <div class="mb-6">
+      <label for="serviceProviderName" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+      <input pInputText id="serviceProviderName" formControlName="serviceProviderName" placeholder="Full name" class="w-full" />
+    </div>
+
+    <!-- Address -->
+    <div class="mb-6">
+      <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Address</label>
+      <textarea pInputTextarea id="address" formControlName="address" rows="3" placeholder="Complete address" class="w-full"></textarea>
+    </div>
+
+    <!-- Phone -->
+    <div class="mb-6">
+      <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+      <input pInputText id="phoneNumber" formControlName="phoneNumber" placeholder="Phone number" class="w-full" />
+    </div>
+
+    <!-- Email -->
+    <div class="mb-6">
+      <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+      <input pInputText id="email" formControlName="email" placeholder="Email" class="w-full" />
+    </div>
+
+    <!-- Service Type -->
+    <div class="mb-6">
+      <label for="serviceDetailsId" class="block text-sm font-medium text-gray-700 mb-2">Service Type</label>
+      <p-dropdown [options]="serviceTypes" formControlName="serviceDetailsId" placeholder="Select service" optionLabel="label" optionValue="value" class="w-full"></p-dropdown>
+    </div>
+
+    <!-- Cost -->
+    <div class="mb-8">
+      <label for="cost" class="block text-sm font-medium text-gray-700 mb-2">Cost</label>
+      <input pInputText id="cost" formControlName="cost" placeholder="₹ Cost" type="number" class="w-full" />
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-end">
+      <button type="button" pButton label="Cancel" class="p-button-outlined p-button-secondary w-full sm:w-auto" (click)="onCancel()" [disabled]="loading"></button>
+      <button type="submit" pButton [label]="loading ? 'Submitting...' : 'Submit'" class="p-button-primary w-full sm:w-auto" [disabled]="loading" [loading]="loading" ></button>
+    </div>
+  </form>
+</div>
+
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-6 text-center text-xs sm:text-sm">
+  <p>&copy; 2025 ServiceHub. All rights reserved.</p>
+</footer>

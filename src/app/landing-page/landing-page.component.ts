@@ -3,12 +3,13 @@ import { Component,OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ServiceCategory, ServiceDetailService } from '../services/service-detail.service';
 import { Router, RouterModule } from '@angular/router';
+import { ResubaleNavbarComponent } from '../resubale-navbar/resubale-navbar.component';
 
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CommonModule,FormsModule,RouterModule],
+  imports: [CommonModule,FormsModule,RouterModule,ResubaleNavbarComponent],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })
@@ -126,9 +127,11 @@ export class LandingPageComponent implements OnInit {
     // Add your learn more logic here
   }
 
-//   viewProviders(serviceDetailsId: number) {
-//   this.router.navigate(['/providers', serviceDetailsId]);
-// }
+ onBecomeProvider(): void {
+    // Navigate to service provider registration form
+    console.log('Navigating...');
+    this.router.navigate(['/become-provider']);
+  }
 
   
 }

@@ -124,12 +124,13 @@ export class LandingPageComponent implements OnInit {
   
   onLearnMore() {
     console.log('Learn More clicked');
+    this.router.navigate(['/about']);
     // Add your learn more logic here
   }
 
  onBecomeProvider(): void {
     // Navigate to service provider registration form
-    console.log('Navigating...');
+   // console.log('Navigating...');
     this.router.navigate(['/become-provider']);
   }
 

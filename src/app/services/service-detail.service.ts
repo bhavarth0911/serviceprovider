@@ -63,6 +63,9 @@ export class ServiceDetailService {
     return this.http.post(`${this.baseUrl}/serviceprovider/addServiceProvider`, data);
   }
 
+  sendEmail(data:any):Observable<any>{
+    return this.http.post(`${this.baseUrl}/user/sendEmail`, data);
+  }
 
 
 }

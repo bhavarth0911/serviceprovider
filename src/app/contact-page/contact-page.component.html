@@ -1,313 +1,370 @@
 <app-resubale-navbar></app-resubale-navbar>
 
 <div class="min-h-screen bg-gray-50">
-      <!-- Contact Form and Info Section -->
-      <section class="py-16 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <!-- Contact Form -->
-            <div class="space-y-6">
-              <div>
-                <h1 class="text-3xl font-bold text-gray-900 mb-2">Send us a message</h1>
-                <p class="text-gray-600">Fill out the form below and we'll get back to you as soon as possible.</p>
-              </div>
-
-              <form class="space-y-6">
-                <!-- Name and Email Row -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">
-                      Full Name <span class="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Your full name"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                    />
-                  </div>
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">
-                      Email Address <span class="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="your.email@company.com"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                    />
-                  </div>
-                </div>
-
-                <!-- Company -->
-                <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">Company</label>
-                  <input
-                    type="text"
-                    placeholder="Your company name"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                  />
-                </div>
-
-                <!-- Message -->
-                <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">
-                    Message <span class="text-red-500">*</span>
-                  </label>
-                  <textarea
-                    rows="5"
-                    placeholder="Tell us about your project or how we can help..."
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
-                  ></textarea>
-                </div>
-
-                <!-- Submit Button -->
-                <button
-                  type="submit"
-                  class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
-
-            <!-- Contact Information -->
-            <div class="space-y-8">
-              <div>
-                <h2 class="text-2xl font-bold text-gray-900 mb-2">Get In Touch</h2>
-                <p class="text-gray-600">Multiple ways to reach us for your convenience.</p>
-              </div>
-
-              <!-- Contact Details -->
-              <div class="space-y-6">
-                <!-- Office Address -->
-                <div class="flex items-start space-x-4">
-                  <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <i class="pi pi-map-marker text-blue-600 text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Office Address</h3>
-                    <div class="text-gray-600 text-sm">
-                      <p>123 Business District</p>
-                      <p>Suite 456</p>
-                      <p>New York, NY 10001</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Phone -->
-                <div class="flex items-start space-x-4">
-                  <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <i class="pi pi-phone text-blue-600 text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Phone</h3>
-                    <div class="text-gray-600 text-sm">
-                      <p>+1 (555) 123-4567</p>
-                      <p>+1 (555) 987-6543</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Email -->
-                <div class="flex items-start space-x-4">
-                  <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <i class="pi pi-envelope text-blue-600 text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
-                    <div class="text-gray-600 text-sm">
-                      <p>info &#64; servicepro.com</p>
-                      <p>support &#64; servicepro.com</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Business Hours -->
-                <div class="flex items-start space-x-4">
-                  <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <i class="pi pi-clock text-blue-600 text-lg"></i>
-                  </div>
-                  <div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Business Hours</h3>
-                    <div class="text-gray-600 text-sm">
-                      <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                      <p>Saturday: 10:00 AM - 4:00 PM</p>
-                      <p>Sunday: Closed</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Find Us Section -->
-              <div class="mt-8">
-                <h3 class="font-semibold text-gray-900 mb-4">Find Us</h3>
-                <div class="rounded-lg overflow-hidden shadow-lg">
-                  <img 
-                    src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=400&h=200&fit=crop" 
-                    alt="Our office location"
-                    class="w-full h-48 object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ Section -->
-      <section class="py-16 px-6 bg-gray-50">
-        <div class="max-w-4xl mx-auto">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p class="text-gray-600">Quick answers to common questions about our services.</p>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- FAQ Item 1 -->
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-              <h3 class="font-semibold text-gray-900 mb-3">How quickly can you start a project?</h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                We typically can begin new projects within 1-2 weeks of initial 
-                consultation, depending on project scope and our current capacity.
-              </p>
-            </div>
-
-            <!-- FAQ Item 2 -->
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-              <h3 class="font-semibold text-gray-900 mb-3">Do you work with small businesses?</h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                Absolutely! We work with businesses of all sizes, from startups 
-                to enterprise organizations, tailoring our approach to fit your 
-                needs and budget.
-              </p>
-            </div>
-
-            <!-- FAQ Item 3 -->
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-              <h3 class="font-semibold text-gray-900 mb-3">What industries do you serve?</h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                We have experience across various industries including 
-                technology, healthcare, finance, retail, and manufacturing.
-              </p>
-            </div>
-
-            <!-- FAQ Item 4 -->
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-              <h3 class="font-semibold text-gray-900 mb-3">Do you offer ongoing support?</h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                Yes, we provide comprehensive ongoing support and 
-                maintenance packages to ensure your continued success after 
-                project completion.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-<!-- Footer -->
-<footer class="bg-slate-900 text-gray-300 py-12 px-6">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- ServiceHub Brand Section -->
-          <div class="space-y-4">
-            <div class="flex items-center space-x-2">
-              <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
-                <i class="pi pi-shield text-white text-lg"></i>
-              </div>
-              <h2 class="text-white text-xl font-semibold">ServiceHub</h2>
-            </div>
-            <p class="text-gray-400 leading-relaxed">
-              Your trusted platform for finding reliable service providers in your area.
+  <!-- Contact Form and Info Section -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">
+              Send us a message
+            </h1>
+            <p class="text-gray-600">
+              Fill out the form below and we'll get back to you as soon as
+              possible.
             </p>
-            <div class="flex space-x-3">
-              <button class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
-                <i class="pi pi-comment text-gray-300"></i>
-              </button>
-              <button class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
-                <i class="pi pi-star text-gray-300"></i>
-              </button>
+          </div>
+
+          <form class="space-y-6" [formGroup]="contactDetails" >
+            <!-- Name and Email Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                  Full Name <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Your full name" formControlName="name"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                  Email Address <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="your.email@company.com" formControlName="email"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            <!-- Company -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2"
+                >Company</label
+              >
+              <input
+                type="text"
+                placeholder="Your company name" 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+              />
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                Message <span class="text-red-500">*</span>
+              </label>
+              <textarea
+                rows="5" formControlName="message"
+                placeholder="Tell us about your project or how we can help..."
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit" (click)="onSendMessage()"
+              class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">Get In Touch</h2>
+            <p class="text-gray-600">
+              Multiple ways to reach us for your convenience.
+            </p>
+          </div>
+
+          <!-- Contact Details -->
+          <div class="space-y-6">
+            <!-- Office Address -->
+            <div class="flex items-start space-x-4">
+              <div
+                class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0"
+              >
+                <i class="pi pi-map-marker text-blue-600 text-lg"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Office Address</h3>
+                <div class="text-gray-600 text-sm">
+                  <p>123 Business District</p>
+                  <p>Suite 456</p>
+                  <p>New York, NY 10001</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="flex items-start space-x-4">
+              <div
+                class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0"
+              >
+                <i class="pi pi-phone text-blue-600 text-lg"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Phone</h3>
+                <div class="text-gray-600 text-sm">
+                  <p>+1 (555) 123-4567</p>
+                  <p>+1 (555) 987-6543</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="flex items-start space-x-4">
+              <div
+                class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0"
+              >
+                <i class="pi pi-envelope text-blue-600 text-lg"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
+                <div class="text-gray-600 text-sm">
+                  <p>info &#64; servicepro.com</p>
+                  <p>support &#64; servicepro.com</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="flex items-start space-x-4">
+              <div
+                class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0"
+              >
+                <i class="pi pi-clock text-blue-600 text-lg"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Business Hours</h3>
+                <div class="text-gray-600 text-sm">
+                  <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                  <p>Saturday: 10:00 AM - 4:00 PM</p>
+                  <p>Sunday: Closed</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Services Section -->
-          <div class="space-y-4">
-            <h3 class="text-white text-lg font-semibold">Services</h3>
-            <ul class="space-y-3">
-              <li>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
-                  Home Services
-                </a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
-                  Automotive
-                </a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
-                  Beauty & Wellness
-                </a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
-                  Healthcare
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Company Section -->
-          <div class="space-y-4">
-            <h3 class="text-white text-lg font-semibold">Company</h3>
-            <ul class="space-y-3">
-              <li>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
-                  Terms of Service
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Contact Section -->
-          <div class="space-y-4">
-            <h3 class="text-white text-lg font-semibold">Contact</h3>
-            <ul class="space-y-3">
-              <li class="flex items-center space-x-3">
-                <i class="pi pi-phone text-gray-400"></i>
-                <span class="text-gray-400">(555) 123-4567</span>
-              </li>
-              <li class="flex items-center space-x-3">
-                <i class="pi pi-envelope text-gray-400"></i>
-                <span class="text-gray-400">hello &#64; servicehub.com</span>
-              </li>
-              <li class="flex items-start space-x-3">
-                <i class="pi pi-map-marker text-gray-400 mt-1"></i>
-                <span class="text-gray-400">123 Service St, City</span>
-              </li>
-            </ul>
+          <!-- Find Us Section -->
+          <div class="mt-8">
+            <h3 class="font-semibold text-gray-900 mb-4">Find Us</h3>
+            <div class="rounded-lg overflow-hidden shadow-lg">
+              <img
+                src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=400&h=200&fit=crop"
+                alt="Our office location"
+                class="w-full h-48 object-cover"
+              />
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Copyright Section -->
-        <div class="border-t border-gray-700 mt-8 pt-6 text-center">
-          <p class="text-gray-400">
-            © 2024 ServiceHub. All rights reserved.
+  <!-- FAQ Section -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-gray-600">
+          Quick answers to common questions about our services.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- FAQ Item 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="font-semibold text-gray-900 mb-3">
+            How quickly can you start a project?
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            We typically can begin new projects within 1-2 weeks of initial
+            consultation, depending on project scope and our current capacity.
+          </p>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="font-semibold text-gray-900 mb-3">
+            Do you work with small businesses?
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Absolutely! We work with businesses of all sizes, from startups to
+            enterprise organizations, tailoring our approach to fit your needs
+            and budget.
+          </p>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="font-semibold text-gray-900 mb-3">
+            What industries do you serve?
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            We have experience across various industries including technology,
+            healthcare, finance, retail, and manufacturing.
+          </p>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="font-semibold text-gray-900 mb-3">
+            Do you offer ongoing support?
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Yes, we provide comprehensive ongoing support and maintenance
+            packages to ensure your continued success after project completion.
           </p>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
+</div>
+
+<!-- Footer -->
+<footer class="bg-slate-900 text-gray-300 py-12 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- ServiceHub Brand Section -->
+      <div class="space-y-4">
+        <div class="flex items-center space-x-2">
+          <div
+            class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center"
+          >
+            <i class="pi pi-shield text-white text-lg"></i>
+          </div>
+          <h2 class="text-white text-xl font-semibold">ServiceHub</h2>
+        </div>
+        <p class="text-gray-400 leading-relaxed">
+          Your trusted platform for finding reliable service providers in your
+          area.
+        </p>
+        <div class="flex space-x-3">
+          <button
+            class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors"
+          >
+            <i class="pi pi-comment text-gray-300"></i>
+          </button>
+          <button
+            class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors"
+          >
+            <i class="pi pi-star text-gray-300"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Services Section -->
+      <div class="space-y-4">
+        <h3 class="text-white text-lg font-semibold">Services</h3>
+        <ul class="space-y-3">
+          <li>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors cursor-pointer"
+            >
+              Home Services
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors cursor-pointer"
+            >
+              Automotive
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors cursor-pointer"
+            >
+              Beauty & Wellness
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors cursor-pointer"
+            >
+              Healthcare
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Company Section -->
+      <div class="space-y-4">
+        <h3 class="text-white text-lg font-semibold">Company</h3>
+        <ul class="space-y-3">
+          <li>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors cursor-pointer"
+            >
+              About Us
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors cursor-pointer"
+            >
+              Careers
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors cursor-pointer"
+            >
+              Privacy Policy
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors cursor-pointer"
+            >
+              Terms of Service
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="space-y-4">
+        <h3 class="text-white text-lg font-semibold">Contact</h3>
+        <ul class="space-y-3">
+          <li class="flex items-center space-x-3">
+            <i class="pi pi-phone text-gray-400"></i>
+            <span class="text-gray-400">(555) 123-4567</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <i class="pi pi-envelope text-gray-400"></i>
+            <span class="text-gray-400">hello &#64; servicehub.com</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <i class="pi pi-map-marker text-gray-400 mt-1"></i>
+            <span class="text-gray-400">123 Service St, City</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+      <p class="text-gray-400">© 2024 ServiceHub. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

@@ -72,6 +72,10 @@ export class ServiceDetailService {
     return this.http.post(`${this.baseUrl}/user/sendEmail`, data);
   }
 
-
+  getProviders():Observable<ServiceProvidersList[]>{
+    return this.http.get<any>(`${this.baseUrl}/ADD-YOUR-ENDPOINT-HERE-PLZ`).pipe(map(response=>{
+      return response.attribute as ServiceProvidersList[];
+    }));
+  }
 
 }

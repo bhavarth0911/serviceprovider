@@ -24,12 +24,12 @@ import { ServiceDetailService } from '../services/service-detail.service';
 })
 export class AddProviderComponent implements OnInit{
 serviceProvider :FormGroup=new FormGroup({
-    serviceProviderName:new FormControl(''),
-    address:new FormControl(''),
-    phoneNumber: new FormControl(''),
-    email: new FormControl(''),
-    serviceDetailsId: new FormControl(''),
-    cost: new FormControl('')
+    serviceProviderName:new FormControl('',[Validators.required]),
+    address:new FormControl('',[Validators.required]),
+    phoneNumber: new FormControl('',Validators.required),
+    email: new FormControl('',Validators.required),
+    serviceDetailsId: new FormControl('',Validators.required),
+    cost: new FormControl('',[Validators.required])
   }) 
   loading = false;
   message = '';

@@ -1,0 +1,48 @@
+/* auth.component.css */
+
+/* Custom focus styles for inputs */
+.p-inputtext:focus {
+  @apply ring-2 ring-blue-500 border-transparent;
+}
+
+.p-inputtext:focus.green-focus {
+  @apply ring-2 ring-green-500 border-transparent;
+}
+
+/* Custom checkbox styles */
+::ng-deep .p-checkbox .p-checkbox-box {
+    
+  @apply border-gray-300 rounded;
+}
+
+::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
+  @apply bg-green-600 border-green-600;
+}
+
+::ng-deep .p-checkbox .p-checkbox-box:focus {
+  @apply ring-2 ring-green-500 ring-opacity-50;
+}
+
+/* Button disabled state */
+::ng-deep .p-button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .grid-cols-2 {
+    @apply grid-cols-1;
+  }
+}
+
+/* Animation for form transitions */
+.form-container {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Custom scrollbar for mobile */
+@media (max-height: 800px) {
+  .min-h-screen {
+    @apply py-8;
+  }
+}

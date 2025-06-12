@@ -4,6 +4,7 @@ import { ProviderListComponent } from './providers-page/providers-page.component
 import { AboutPageComponent } from './about-page/about-page.component';
 import { AddProviderComponent } from './add-provider/add-provider.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
+import { AuthComponantComponent } from './auth-componant/auth-componant.component';
 
 
 export const routes: Routes = [
@@ -12,6 +13,8 @@ export const routes: Routes = [
     {path:'about',component:AboutPageComponent},
     { path: 'become-provider', component: AddProviderComponent },
     { path: 'contact', component: ContactPageComponent },
+    {path:  'signup',component:AuthComponantComponent},
+
      { path: '**', redirectTo: '' }
     
 

@@ -19,6 +19,11 @@ export interface ServiceProvider {
   cost: number;
   serviceDetailsId: number;
 }
+export interface ServiceProvidersList extends ServiceProvider {
+   "serviceName": string,
+   "serviceDescription": string,
+   "serviceRating":number
+}
 
 interface ProvidersResponse {
   attributes: {
@@ -59,7 +64,7 @@ export class ServiceDetailService {
     );
   }
 
-    addServiceProvider(data: any): Observable<any> {
+  addServiceProvider(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/serviceprovider/addServiceProvider`, data);
   }
 
@@ -67,5 +72,10 @@ export class ServiceDetailService {
     return this.http.post(`${this.baseUrl}/user/sendEmail`, data);
   }
 
+  getProviders():Observable<ServiceProvidersList[]>{
+    return this.http.get<any>(`${this.baseUrl}/ADD-YOUR-ENDPOINT-HERE-PLZ`).pipe(map(response=>{
+      return response.attribute as ServiceProvidersList[];
+    }));
+  }
 
 }

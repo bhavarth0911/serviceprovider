@@ -19,6 +19,11 @@ export interface ServiceProvider {
   cost: number;
   serviceDetailsId: number;
 }
+export interface ServiceProvidersList extends ServiceProvider {
+   "serviceName": string,
+   "serviceDescription": string,
+   "serviceRating":number
+}
 
 interface ProvidersResponse {
   attributes: {
@@ -59,13 +64,14 @@ export class ServiceDetailService {
     );
   }
 
-    addServiceProvider(data: any): Observable<any> {
+  addServiceProvider(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/serviceprovider/addServiceProvider`, data);
   }
 
   sendEmail(data:any):Observable<any>{
     return this.http.post(`${this.baseUrl}/user/sendEmail`, data);
   }
+
 
 
 }

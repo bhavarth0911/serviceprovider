@@ -1,0 +1,63 @@
+<div class="bg-white p-10 w-full">
+    <div class="bg-gray-50 py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24 rounded-md flex flex-col items-center w-full">
+          <h2
+        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+      >
+        Our prestigious service providers
+      </h2>
+      <p
+        class="sm:text-lg md:text-xl text-gray-600 mb-10"
+      >
+       Connect with trusted professionals for all your service needs.
+       <span class="font-bold">All are our verified professionals</span>
+      </p>
+         <!-- Search Bar -->
+    <div class="w-full">
+      <div class="flex items-center bg-white rounded-full shadow-md px-4 sm:px-6 py-2.5 sm:py-3 gap-2">
+        <i class="pi pi-search text-lg sm:text-xl text-gray-500 mr-3 sm:mr-4" aria-hidden="true"></i>
+        <input type="text" placeholder="Search Providers" class="flex-grow text-sm sm:text-base md:text-lg outline-none px-2 sm:px-4 py-1 text-gray-700" />
+        <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 sm:px-8 py-1.5 sm:py-2 rounded-full font-semibold text-sm sm:text-base transition">Search</button>
+        <button class="pi pi-filter text-lg sm:text-xl text-gray-500 hover:text-black  mr-3 sm:mr-4" #triggerBtn (click)="togglePopup()"></button>
+      </div>
+    <div *ngIf="isFilterPopup"
+    class="absolute z-10 mt-2 w-52 bg-white border border-gray-400 rounded-md shadow-lg"
+    [style.left.px]="popupX"
+    [style.top.px]="popupY" >
+    <div class="w-full flex-col gap-2 p-1 justify-center">
+        <div class="p-2 text-gray-600 cursor-pointer hover:bg-blue-200 hover:text-black rounded-sm"><i class="pi pi-wallet text-sm  pr-2" aria-hidden="true"></i> Cost</div>
+        <div class="p-2 text-gray-600 cursor-pointer hover:bg-blue-200 hover:text-black rounded-sm"><i class="pi pi-star text-sm pr-2" aria-hidden="true"></i>Rating</div>
+    </div>
+  </div>
+
+    </div>
+    <div class="bg-white p-5 mt-10 w-full rounded-md flex-col gap-2">
+    <div class="flex flex-wrap gap-4 justify-center items-stretch" >
+       
+        <div class="bg-white p-5 sm:p-6 rounded-xl border hover:shadow-xl transition-all w-full max-w-md min-w-[200px] break-words duration-300 flex flex-col items-start transform hover:-translate-x-1 sm:hover:-translate-x-3"
+        *ngFor="let service of serviceProviders">
+        <p class="text-gray-600 text-xs sm:text-sm">ID: #{{service.serviceProviderId}}</p>
+          <img
+              alt="provider"
+              class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full self-center"
+              src="https://dummyimage.com/80x80"
+            />
+        <div class=" border-b-2 w-full">
+          <h2 class="text-lg sm:text-xl font-bold text-blue-600 mb-3 sm:mb-2">{{service.serviceProviderName}}</h2>
+          <p class="text-gray-600 text-xs sm:text-sm mb-1 ">{{service.email}}</p>
+          <p class="text-gray-600 text-xs sm:text-sm mb-1 ">+91 {{service.phoneNumber}}</p>
+          <p class="text-gray-600 text-xs sm:text-sm mb-1">{{service.address}}</p>
+          <p class="text-gray-800 text-xs sm:text-sm mb-1">Cost: {{+service.cost | currency:'INR' }}</p>
+        </div>
+        <div class="w-full">
+        <h2 class="text-xl font-bold text-blue-600 my-2 ">{{service.serviceName}}</h2>
+        <p class="text-gray-800 text-xs sm:text-sm mb-1 ">{{service.serviceDescription}}</p>
+        <p class="text-gray-800 text-md mb-1 "> Ratings : {{service.serviceRating}}/5</p>
+        </div>
+         <button class="flex items-center justify-center gap-2 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-xs sm:text-sm flex-shrink-0 font-semibold transition self-center">
+           Connect <i class="pi pi-angle-double-right text-lg text-white "></i>
+          </button>
+      </div>
+    </div>
+    </div>
+</div>
+</div>

@@ -11,8 +11,7 @@
 
 /* Custom checkbox styles */
 ::ng-deep .p-checkbox .p-checkbox-box {
-    
-  @apply border-gray-300 rounded;
+  @apply border border-gray-300 bg-white transition-colors duration-200;
 }
 
 ::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
@@ -22,6 +21,7 @@
 ::ng-deep .p-checkbox .p-checkbox-box:focus {
   @apply ring-2 ring-green-500 ring-opacity-50;
 }
+
 
 /* Button disabled state */
 ::ng-deep .p-button:disabled {

@@ -69,7 +69,8 @@ export class ProviderListComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error fetching service providers', err);
-        this.error = 'Failed to load service providers. Please try again.';
+        this.error = this.error = err.error.errors[0].message;
+        alert(this.error);  
         this.loading = false;
       }
     });

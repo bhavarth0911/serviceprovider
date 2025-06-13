@@ -73,6 +73,7 @@ serviceProvider :FormGroup=new FormGroup({
         this.loading = false;
         if (err.error?.errors?.length) {
           this.error = err.error.errors[0].message;
+          alert(this.error);
         } else {
           this.error = 'Something went wrong!';
         }

@@ -21,7 +21,8 @@ export class ContactPageComponent {
   contactDetails :FormGroup =new FormGroup({
     name:new FormControl(''),
     email:new FormControl(''),
-    message:new FormControl('')
+    message:new FormControl(''),
+    phno:new FormControl('')
   });
     
   onSendMessage()

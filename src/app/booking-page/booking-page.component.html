@@ -1,0 +1,173 @@
+<!-- service-booking.component.html -->
+<div class="min-h-screen bg-gradient-to-br from-purple-100 to-indigo-100 py-12 px-4">
+  <div class="max-w-2xl mx-auto">
+    <!-- Header Section -->
+    <div class="text-center mb-8">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">Book Your Service</h1>
+      <p class="text-gray-600 text-lg">
+        Fill out the form below to book your service. We'll get back to you shortly to confirm your appointment.
+      </p>
+    </div>
+
+    <!-- Form Card -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+      <!-- Form Header -->
+      <div class="bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-6">
+        <h2 class="text-2xl font-bold text-white mb-2">Service Booking Form</h2>
+        <p class="text-purple-100">Please provide your details below</p>
+      </div>
+
+      <!-- Form Content -->
+      <div class="p-8">
+        <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+          <!-- Customer Name -->
+          <div class="mb-6">
+            <label class="flex items-center text-gray-700 font-semibold mb-3">
+              <i class="pi pi-user mr-2 text-purple-600"></i>
+              Customer Name *
+            </label>
+            <input
+              type="text"
+              pInputText
+              formControlName="customerName"
+              placeholder="Enter your full name"
+              class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+              [class.border-red-500]="customerName?.invalid && customerName?.touched"
+            />
+            <small 
+              *ngIf="customerName?.invalid && customerName?.touched" 
+              class="text-red-500 mt-1 block"
+            >
+              Customer name is required
+            </small>
+          </div>
+
+          <!-- Customer Address -->
+          <div class="mb-6">
+            <label class="flex items-center text-gray-700 font-semibold mb-3">
+              <i class="pi pi-map-marker mr-2 text-purple-600"></i>
+              Customer Address *
+            </label>
+            <textarea
+              pInputTextarea
+              formControlName="customerAddress"
+              placeholder="Enter your complete address"
+              rows="3"
+              class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 resize-none"
+              [class.border-red-500]="customerAddress?.invalid && customerAddress?.touched"
+            ></textarea>
+            <small 
+              *ngIf="customerAddress?.invalid && customerAddress?.touched" 
+              class="text-red-500 mt-1 block"
+            >
+              Customer address is required
+            </small>
+          </div>
+
+          <!-- Phone Number -->
+          <div class="mb-6">
+            <label class="flex items-center text-gray-700 font-semibold mb-3">
+              <i class="pi pi-phone mr-2 text-purple-600"></i>
+              Phone Number *
+            </label>
+            <input
+              type="tel"
+              pInputText
+              formControlName="phoneNumber"
+              placeholder="Enter your phone number"
+              class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+              [class.border-red-500]="phoneNumber?.invalid && phoneNumber?.touched"
+            />
+            <small 
+              *ngIf="phoneNumber?.invalid && phoneNumber?.touched" 
+              class="text-red-500 mt-1 block"
+            >
+              <span *ngIf="phoneNumber?.errors?.['required']">Phone number is required</span>
+              <span *ngIf="phoneNumber?.errors?.['pattern']">Please enter a valid 10-digit phone number</span>
+            </small>
+          </div>
+
+          <!-- Service Cost -->
+          <div class="mb-6">
+            <label class="flex items-center text-gray-700 font-semibold mb-3">
+              <i class="pi pi-dollar mr-2 text-purple-600"></i>
+              Service Cost *
+            </label>
+            <input
+              type="number"
+              pInputText
+              formControlName="serviceCost"
+              
+              min="0"
+              step="0.01"
+              class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+              [class.border-red-500]="serviceCost?.invalid && serviceCost?.touched"
+              readonly
+              
+            />
+            <small 
+              *ngIf="serviceCost?.invalid && serviceCost?.touched" 
+              class="text-red-500 mt-1 block"
+            >
+              <span *ngIf="serviceCost?.errors?.['required']">Service cost is required</span>
+              <span *ngIf="serviceCost?.errors?.['min']">Service cost must be greater than 0</span>
+            </small>
+          </div>
+
+          <!-- Service Provider -->
+          <div class="mb-8">
+            <label class="flex items-center text-gray-700 font-semibold mb-3">
+              <i class="pi pi-briefcase mr-2 text-purple-600"></i>
+              Service Provider
+            </label>
+          
+            <input
+              
+              pInputText
+              formControlName="serviceProvider"
+               min="0"
+              step="0.01"
+              class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+              [class.border-red-500]="serviceProvider?.invalid && serviceProvider?.touched"
+              readonly
+              
+            />
+            <small 
+              *ngIf="serviceProvider?.invalid && serviceProvider?.touched" 
+              class="text-red-500 mt-1 block"
+            >
+              Please select a service provider
+            </small>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button
+              type="submit"
+              pButton
+              label="Submit Booking"
+              class="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
+              [disabled]="bookingForm.invalid"
+            ></button>
+            
+            <button
+              type="button"
+              pButton
+              label="Reset"
+              (click)="onCancel()"
+              class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
+            ></button>
+          </div>    
+
+          <!-- Terms Notice -->
+          <div class="mt-6 text-center">
+            <p class="text-gray-500 text-sm">
+              By submitting this form, you agree to our terms of service.<br>
+              We'll contact you within 24 hours to confirm your booking.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

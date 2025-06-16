@@ -69,13 +69,21 @@ export class ServiceDetailService {
   }
 
   sendEmail(data:any):Observable<any>{
-    return this.http.post(`${this.baseUrl}/user/sendEmail`, data);
+    return this.http.post(`${this.baseUrl}/enquiry/sendEmail`, data);
   }
 
   getProviders():Observable<ServiceProvidersList[]>{
-    return this.http.get<any>(`${this.baseUrl}/ADD-YOUR-ENDPOINT-HERE-PLZ`).pipe(map(response=>{
-      return response.attribute as ServiceProvidersList[];
+    return this.http.get<any>(`${this.baseUrl}/serviceprovider/getAllProvidersWithDetails`).pipe(map(response=>{
+      return response.attributes.serviceproviders as ServiceProvidersList[];
     }));
+  }
+
+  loginUser(data:any):Observable<any>{
+    return this.http.post<any>(`${this.baseUrl}/user/login`,data);
+  }
+
+  signupUser(data:any):Observable<any>{
+    return this.http.post<any>(`${this.baseUrl}/user/adduser`,data)
   }
 
 }

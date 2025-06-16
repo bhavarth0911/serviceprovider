@@ -43,5 +43,8 @@ isMobileMenuOpen = false;
   onSignIn(){
     this.router.navigate(['/signup']);
   }
+  onGetStarted(){
+    this.router.navigate(['/provider'])
+  }
 
 }

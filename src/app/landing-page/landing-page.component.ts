@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component,OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ServiceCategory, ServiceDetailService } from '../services/service-detail.service';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { ResubaleNavbarComponent } from '../resubale-navbar/resubale-navbar.component';
 
 
@@ -34,7 +34,7 @@ export class LandingPageComponent implements OnInit {
 
     // Method to handle View Providers button click
   viewProviders(serviceDetailId: number): void {
-    this.router.navigate(['/provider'], { 
+    this.router.navigate(['/view-provider'], { 
       queryParams: { serviceDetailId: serviceDetailId } 
     });
   }
@@ -119,6 +119,7 @@ export class LandingPageComponent implements OnInit {
   
   onBookService() {
     console.log('Book a Service clicked');
+    this.router.navigate(['/booking-page']);
     // Add your booking logic here
   }
   

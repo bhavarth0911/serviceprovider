@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceDetailService } from '../services/service-detail.service';
 
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ResubaleNavbarComponent } from '../resubale-navbar/resubale-navbar.component';
+import { BookingServiceService } from '../services/booking-service.service';
 
 // Interface for service provider
 interface ServiceProvider {
@@ -38,7 +39,9 @@ export class ProviderListComponent implements OnInit {
 
   constructor(
     private serviceDetailService: ServiceDetailService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router:Router,
+    private bookingDataService:BookingServiceService
   ) {}
 
   ngOnInit(): void {
@@ -76,12 +79,15 @@ export class ProviderListComponent implements OnInit {
     });
   }
 
-  bookProvider(provider: ServiceProvider): void {
-    // Implement booking logic here
-    console.log('Booking provider:', provider);
-    alert("you booking is confirmed")
-    // You can navigate to booking page or open a modal
-  }
+bookProvider(provider: ServiceProvider): void {
+  this.bookingDataService.setBookingData({
+    serviceProviderName: provider.serviceProviderName,
+    serviceCost: provider.cost
+  });
+  this.router.navigate(['/booking-page']);
+}
+
+
 
 
 

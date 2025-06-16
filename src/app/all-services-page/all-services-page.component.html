@@ -1,0 +1,279 @@
+<app-resubale-navbar></app-resubale-navbar>
+<!-- Service Categories Section -->
+    <div class="bg-gray-50 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Explore Our Service Categories
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Discover talented professionals across dozens of categories. From tech to creative services, find exactly what you need.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div 
+            *ngFor="let category of serviceCategories" 
+            class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 cursor-pointer group"
+          >
+            <div class="flex flex-col items-start">
+              <!-- Icon -->
+              <div 
+                class="w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+                [ngStyle]="{'background-color': category.iconColor}"
+              >
+                <i [class]="category.icon" class="text-white text-2xl"></i>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                {{ category.title }}
+              </h3>
+
+              <!-- Description -->
+              <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                {{ category.description }}
+              </p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-1 mb-4">
+                <span 
+                  *ngFor="let tag of category.tags" 
+                  class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded"
+                >
+                  {{ tag }}
+                </span>
+              </div>
+
+              <!-- Providers Count -->
+              <div class="text-sm font-semibold text-gray-900 mt-auto">
+                {{ category.providers }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Services Section -->
+    <div class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Featured Services
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Hand-picked premium services from our top-rated providers. Quality guaranteed with fast delivery times.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div 
+            *ngFor="let service of featuredServices" 
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
+          >
+            <!-- Service Image -->
+            <div class="relative h-64 bg-gradient-to-br from-blue-500 to-purple-600 overflow-hidden">
+              <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+              <img 
+                [src]="service.image" 
+                [alt]="service.title"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                onerror="this.style.display='none'"
+              >
+              
+              <!-- Badges -->
+              <div class="absolute top-4 left-4 flex gap-2">
+                <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  Featured
+                </span>
+                <span 
+                  *ngIf="service.expressAvailable" 
+                  class="bg-black text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  Express available
+                </span>
+                <span 
+                  *ngIf="service.rushAvailable" 
+                  class="bg-black text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  48h rush available
+                </span>
+                <span 
+                  *ngIf="service.deliveryTime" 
+                  class="bg-black text-white px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  {{ service.deliveryTime }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Service Content -->
+            <div class="p-6">
+              <!-- Title -->
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                {{ service.title }}
+              </h3>
+
+              <!-- Provider -->
+              <p class="text-gray-600 mb-3">{{ service.provider }}</p>
+
+              <!-- Rating -->
+              <div class="flex items-center mb-4">
+                <i class="pi pi-star-fill text-yellow-400 text-sm mr-1"></i>
+                <span class="font-semibold text-gray-900 mr-1">{{ service.rating }}</span>
+                <span class="text-gray-500 text-sm">({{ service.reviews }} reviews)</span>
+              </div>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span 
+                  *ngFor="let tag of service.tags" 
+                  class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                >
+                  {{ tag }}
+                </span>
+              </div>
+
+              <!-- Duration and Location -->
+              <div class="flex items-center text-gray-500 text-sm mb-4 space-y-1">
+                <div class="flex items-center mr-4">
+                  <i class="pi pi-clock mr-2"></i>
+                  <span>{{ service.duration }}</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="pi pi-map-marker mr-2"></i>
+                  <span>{{ service.location }}</span>
+                </div>
+                <div *ngIf="service.status" class="flex items-center ml-4">
+                  <i class="pi pi-circle-fill mr-2 text-green-500"></i>
+                  <span>{{ service.status }}</span>
+                </div>
+              </div>
+
+              <!-- Price and Button -->
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-2xl font-bold text-gray-900">{{ service.price }}</span>
+                </div>
+                <button 
+                  class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors duration-200 flex items-center"
+                >
+                  View Details
+                  <i class="pi pi-arrow-right ml-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+<!-- Footer -->
+<footer class="bg-slate-900 text-gray-300 py-12 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- ServiceHub Brand Section -->
+          <div class="space-y-4">
+            <div class="flex items-center space-x-2">
+              <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                <i class="pi pi-shield text-white text-lg"></i>
+              </div>
+              <h2 class="text-white text-xl font-semibold">ServiceHub</h2>
+            </div>
+            <p class="text-gray-400 leading-relaxed">
+              Your trusted platform for finding reliable service providers in your area.
+            </p>
+            <div class="flex space-x-3">
+              <button class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                <i class="pi pi-comment text-gray-300"></i>
+              </button>
+              <button class="w-8 h-8 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors">
+                <i class="pi pi-star text-gray-300"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Services Section -->
+          <div class="space-y-4">
+            <h3 class="text-white text-lg font-semibold">Services</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  Home Services
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  Automotive
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  Beauty & Wellness
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  Healthcare
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Company Section -->
+          <div class="space-y-4">
+            <h3 class="text-white text-lg font-semibold">Company</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  Terms of Service
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Section -->
+          <div class="space-y-4">
+            <h3 class="text-white text-lg font-semibold">Contact</h3>
+            <ul class="space-y-3">
+              <li class="flex items-center space-x-3">
+                <i class="pi pi-phone text-gray-400"></i>
+                <span class="text-gray-400">(555) 123-4567</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="pi pi-envelope text-gray-400"></i>
+                <span class="text-gray-400">hello &#64; servicehub.com</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <i class="pi pi-map-marker text-gray-400 mt-1"></i>
+                <span class="text-gray-400">123 Service St, City</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+          <p class="text-gray-400">
+            © 2025 ServiceHub. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>

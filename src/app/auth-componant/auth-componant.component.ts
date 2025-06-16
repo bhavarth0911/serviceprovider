@@ -5,6 +5,8 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { Router, RouterModule } from '@angular/router';
+import { ServiceDetailService } from '../services/service-detail.service';
+import { response } from 'express';
 @Component({
   selector: 'app-auth-componant',
   standalone: true,
@@ -21,21 +23,21 @@ export class AuthComponantComponent {
   signInForm: FormGroup;
   signUpForm: FormGroup;
 
-  constructor(private fb: FormBuilder,private router:Router) {
+  constructor(private fb: FormBuilder,private router:Router,private serviceDetail:ServiceDetailService) {
     this.signInForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
 
     this.signUpForm = this.fb.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
+      name: ['', [Validators.required]],
+      //lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required]],
-      companyName: ['', [Validators.required]],
+     // phoneNumber: ['', [Validators.required]],
+      username: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required]],
-      agreeToTerms: [false, [Validators.requiredTrue]]
+      //confirmPassword: ['', [Validators.required]],
+     // agreeToTerms: [false, [Validators.requiredTrue]]
     });
   }
 
@@ -46,20 +48,51 @@ export class AuthComponantComponent {
   onSignIn() {
     if (this.signInForm.valid) {
       console.log('Sign in form submitted:', this.signInForm.value);
-      alert("login sucesfully");
+      this.serviceDetail.loginUser(this.signInForm.value).subscribe({
+        next:(response)=>{
+          
+          if(response.attributes?.message=="Login successfull"){
+            alert(response.attributes?.message);
+          }
+          
+        },
+        error: (err) => {
+        if (err.error?.errors?.length) {
+          
+          alert(err.error.errors[0].message);
+        }
+      }
+      })
+
+
+      this.signInForm.reset();
+
       // Handle sign in logic here
     }
   }
 
   onSignUp() {
     if (this.signUpForm.valid) {
-      if (this.signUpForm.value.password !== this.signUpForm.value.confirmPassword) {
-        // Handle password mismatch
-        return;
+      
+        this.serviceDetail.signupUser(this.signUpForm.value).subscribe({
+        next:(response)=>{
+          
+          if(response.attributes?.message){
+            alert(response.attributes?.message);
+            this.signUpForm.reset();
+          }
+          
+        },
+        error: (err) => {
+        if (err.error?.errors?.length) {
+          
+          alert(err.error.errors[0].message);
+        }
       }
-      console.log('Sign up form submitted:', this.signUpForm.value);
-      // Handle sign up logic here
-    }
+      });
+      }
+     
+    
 }
 
   onBack(){

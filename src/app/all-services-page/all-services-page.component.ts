@@ -1,19 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { TagModule } from 'primeng/tag';
 import { ResubaleNavbarComponent } from '../resubale-navbar/resubale-navbar.component';
-interface ServiceCategory {
-  id: number;
-  title: string;
-  description: string;
-  icon: string;
-  iconColor: string;
-  tags: string[];
-  providers: string;
-}
+import { ServiceCategory, ServiceDetailService } from '../services/service-detail.service';
+import { RatingModule } from 'primeng/rating';
 
 interface FeaturedService {
   id: number;
@@ -35,86 +28,53 @@ interface FeaturedService {
 @Component({
   selector: 'app-all-services-page',
   standalone: true,
-  imports: [CommonModule, CardModule, ButtonModule, TagModule,RouterModule,ResubaleNavbarComponent],
+  imports: [CommonModule, CardModule, ButtonModule, TagModule,RouterModule,ResubaleNavbarComponent,RatingModule],
   templateUrl: './all-services-page.component.html',
   styleUrl: './all-services-page.component.css'
 })
-export class AllServicesPageComponent {
-serviceCategories: ServiceCategory[] = [
-    {
-      id: 1,
-      title: 'Web Development',
-      description: 'Custom websites, web apps, and e-commerce solutions',
-      icon: 'pi pi-code',
-      iconColor: '#3B82F6',
-      tags: ['React', 'WordPress', 'Shopify'],
-      providers: '2,500+ providers'
-    },
-    {
-      id: 2,
-      title: 'Digital Marketing',
-      description: 'SEO, social media, and advertising campaigns',
-      icon: 'pi pi-megaphone',
-      iconColor: '#10B981',
-      tags: ['SEO', 'PPC', 'Social Media'],
-      providers: '1,800+ providers'
-    },
-    {
-      id: 3,
-      title: 'Graphic Design',
-      description: 'Logos, branding, and visual identity design',
-      icon: 'pi pi-palette',
-      iconColor: '#8B5CF6',
-      tags: ['Logo', 'Branding', 'Print'],
-      providers: '3,200+ providers'
-    },
-    {
-      id: 4,
-      title: 'Content Writing',
-      description: 'Blog posts, copywriting, and content strategy',
-      icon: 'pi pi-file-edit',
-      iconColor: '#F97316',
-      tags: ['Blogs', 'Copy', 'Scripts'],
-      providers: '1,500+ providers'
-    },
-    {
-      id: 5,
-      title: 'Video Production',
-      description: 'Video editing, animation, and production',
-      icon: 'pi pi-video',
-      iconColor: '#EF4444',
-      tags: ['Editing', 'Animation', 'Live'],
-      providers: '900+ providers'
-    },
-    {
-      id: 6,
-      title: 'Business Consulting',
-      description: 'Strategy, operations, and growth consulting',
-      icon: 'pi pi-chart-line',
-      iconColor: '#6366F1',
-      tags: ['Strategy', 'Operations', 'Growth'],
-      providers: '750+ providers'
-    },
-    {
-      id: 7,
-      title: 'Mobile Development',
-      description: 'iOS and Android app development',
-      icon: 'pi pi-mobile',
-      iconColor: '#059669',
-      tags: ['iOS', 'Android', 'React Native'],
-      providers: '1,200+ providers'
-    },
-    {
-      id: 8,
-      title: 'Photography',
-      description: 'Product, portrait, and event photography',
-      icon: 'pi pi-camera',
-      iconColor: '#EC4899',
-      tags: ['Product', 'Portrait', 'Events'],
-      providers: '600+ providers'
-    }
-  ];
+export class AllServicesPageComponent implements OnInit{
+serviceCategories: ServiceCategory[] = [];
 
+constructor(
+    private serviceDetailService: ServiceDetailService,
+    private router: Router
+  ) {}
+iconMap: { [key: string]: { icon: string; color: string } } = {
+  'Home Service': {
+    icon: 'pi pi-home',
+    color: '#3B82F6' // blue
+  },
+  'Automotive Services': {
+    icon: 'pi pi-car',
+    color: '#F97316' // orange
+  },
+  'Technical Repair': {
+    icon: 'pi pi-cog',
+    color: '#10B981' // green
+  },
+  'Beauty & Wellness': {
+    icon: 'pi pi-heart',
+    color: '#EC4899' // pink
+  }
+};
+getIcon(title: string): string {
+  return this.iconMap[title]?.icon || 'pi pi-briefcase'; // default
+}
+
+getColor(title: string): string {
+  return this.iconMap[title]?.color || '#6B7280'; // default gray
+}
+
+   ngOnInit(): void {
+    this.serviceDetailService.getServiceCategories().subscribe({
+      next: (data) => {
+        this.serviceCategories = data;
+      },
+      error: (err) => {
+        console.error('Error fetching service categories', err);
+      }
+    });
+  }
   featuredServices: FeaturedService[] = [
     {
       id: 1,

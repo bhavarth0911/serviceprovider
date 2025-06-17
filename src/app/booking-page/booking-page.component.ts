@@ -58,7 +58,7 @@ bookingForm: FormGroup;
   }
 
   onCancel(): void {
-    this.bookingForm.reset();
+    this.router.navigate(['/']);
     console.log('Form cancelled and reset');
   }
 

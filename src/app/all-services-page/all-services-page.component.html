@@ -20,9 +20,9 @@
               <!-- Icon -->
               <div 
                 class="w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
-                [ngStyle]="{'background-color': category.iconColor}"
+                [ngStyle]="{'background-color':  getColor(category.title)}"
               >
-                <i [class]="category.icon" class="text-white text-2xl"></i>
+                <i [class]="getIcon(category.title)" class="text-white text-2xl"></i>
               </div>
 
               <!-- Title -->
@@ -35,18 +35,17 @@
                 {{ category.description }}
               </p>
 
-              <!-- Tags -->
-              <div class="flex flex-wrap gap-1 mb-4">
-                <span 
-                  *ngFor="let tag of category.tags" 
-                  class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded"
-                >
-                  {{ tag }}
-                </span>
-              </div>
+              <div class="flex items-center">
+            <ng-container *ngFor="let star of [1,2,3,4,5]">
+            <i  class="pi"[ngClass]="{
+                'pi-star-fill text-yellow-400': category.rating >= star,
+                'pi-star text-gray-300': category.rating < star}"></i>
+           </ng-container>
+             <span class="ml-2 text-sm text-gray-600">{{ category.rating.toFixed(1) }}</span>
+            </div>
 
               <!-- Providers Count -->
-              <div class="text-sm font-semibold text-gray-900 mt-auto">
+              <div class="text-sm font-semibold text-gray-900 mt-auto">Providers
                 {{ category.providers }}
               </div>
             </div>
